@@ -1,3 +1,7 @@
-import { random } from "../random.js";
+import {random} from "../random.js";
+import {string} from "../string.js";
 
-console.log(random.shuffle(["a", "b", "c", "d", "e", "f", "g"]));
+let s = string.ascii_letters;
+let x = random.shuffle(s);
+
+console.log(x);

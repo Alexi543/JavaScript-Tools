@@ -1,51 +1,41 @@
-const checkArray = (array) => {
-    if (!typeof(array) === "object" || array.length === 0) {
-        console.error("Invalid Array");
-        return false;
-    }
-
-    return true
-}
-
-class randomTemplate {
+class moduleRandom {
     number(min = 0, max) {
-        if (!typeof(min) === "number") {
-            console.error("Minimal number is invalid.");
-            return;
-        }
-
-        if (!typeof(max) === "number") {
-            console.error("Maximal number is invalid.");
-            return;
-        }
+        if (typeof(min) !== "number") return console.error("Minimal number is invalid.");
+        if (typeof(max) !== "number") return console.error("Maximal number is invalid.");
+        if (min > max) return console.error("Min > Max");
 
         return Math.floor(Math.random() * (max - min + 1) + min);
     }   
 
+
     choise(array) {
-        if (!checkArray(array)) return;
-        
-        return array[this.randomNumber(0, array.length - 1)];
+        if (typeof(array) !== "object" || array.length === 0) return console.error("Invalid Array");
+
+        return array[this.number(0, array.length - 1)];
     }
+
 
     shuffle(array) {
-        if (!checkArray(array)) return;
-        
-        return array.sort(() => Math.random() - 0.5);;
+        if (typeof(array) !== "object" || array.length === 0) return console.error("Invalid Array");
+
+        console.log(typeof(array));
+
+        return array;
     }
 
+
     sample(array, amount) {
-        if (!checkArray(array)) return;
+        if (typeof(array) !== "object" || array.length === 0) return console.error("Invalid Array");
+        if (typeof(amount) !== "number" || amount <= 0) return console.error("Invalid amount");
+        if (amount > array.length) return console.error("Amount > array");
 
-        if (!typeof(amount) === "number" || amount <= 0) {
-            console.error("Invalid amount");
-            return;
-        }
-        
-        let newArray = [];
+        array = this.shuffle(array);
 
+        while (array.length > amount) array.pop();
+
+        return array;
     }
 }
 
-const random = new randomTemplate;
+const random = new moduleRandom;
 export {random};
