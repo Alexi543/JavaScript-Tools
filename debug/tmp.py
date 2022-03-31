@@ -1,13 +1,5 @@
 from itertools import count
 import string
 import random
-#count
 
-c = "["
-
-for l in string.punctuation:
-    c += f'"{l}", '
-
-c += "]"
-
-print(c)
+print(random.sample([1, 2, 3, 4, 5], 4))

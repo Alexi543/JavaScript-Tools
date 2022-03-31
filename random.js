@@ -1,5 +1,14 @@
+const checkArray = (array) => {
+    if (!typeof(array) === "object" || array.length === 0) {
+        console.error("Invalid Array");
+        return false;
+    }
+
+    return true
+}
+
 class randomTemplate {
-    randomNumber(min = 0, max) {
+    number(min = 0, max) {
         if (!typeof(min) === "number") {
             console.error("Minimal number is invalid.");
             return;
@@ -13,13 +22,28 @@ class randomTemplate {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }   
 
-    getRandom(array) {
-        if (!typeof(array) === "object" || array.length === 0) {
-            console.error("Invalid array");
+    choise(array) {
+        if (!checkArray(array)) return;
+        
+        return array[this.randomNumber(0, array.length - 1)];
+    }
+
+    shuffle(array) {
+        if (!checkArray(array)) return;
+        
+        return array.sort(() => Math.random() - 0.5);;
+    }
+
+    sample(array, amount) {
+        if (!checkArray(array)) return;
+
+        if (!typeof(amount) === "number" || amount <= 0) {
+            console.error("Invalid amount");
             return;
         }
+        
+        let newArray = [];
 
-        return array[this.randomNumber(0, array.length - 1)];
     }
 }
 
