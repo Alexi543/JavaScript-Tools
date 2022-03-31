@@ -8,8 +8,31 @@ class stringTemplate {
     punctuation = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~", ];
     printable = this.ascii_letters + this.digits + this.punctuation
 
-    deleteCarater(string, [...catarers]) {
-        
+    deleteCaracter(string, [...caracters]) {
+        if (!typeof(string) === "string" || string === "") {
+            console.error("Invalid string.");
+            return;
+        }
+
+        if (!caracters.length > 0) {
+            console.error("Invalid caracters to delete");
+            return;
+        }
+    
+        string = string.split("");
+        string.filter(x => caracters.indexOf(x) === -1);
+
+        if (string.length === 0) return "";
+
+        let clearString = "";
+
+        string.forEach(x => clearString += x);
+
+        return clearString;
+    }
+
+    keepCharacters(string, [...caraters]) {
+
     }
 }
 
