@@ -20,22 +20,66 @@ class stringTemplate {
         }
     
         string = string.split("");
-        string.filter(x => caracters.indexOf(x) === -1);
+        string = string.filter(x => caracters.indexOf(x) === -1);
 
         if (string.length === 0) return "";
 
-        let clearString = "";
+        let cleanString = "";
 
-        string.forEach(x => clearString += x);
+        string.forEach(x => cleanString += x);
 
-        return clearString;
+        return cleanString;
     }
 
-    keepCharacters(string, [...caraters]) {
+    keepCharacters(string, [...caracters]) {
+        if (!typeof(string) === "string" || string === "") {
+            console.error("Invalid string.");
+            return;
+        }
 
+        if (!caracters.length > 0) {
+            console.error("Invalid caracters to keep");
+            return;
+        }
+
+        string = string.split("");
+        string = string.filter(x => caracters.indexOf(x) !== -1);
+
+        if (string.length === 0) return "";
+
+        let cleanString = "";
+
+        string.forEach(x => cleanString += x);
+
+        return cleanString;
+    }
+
+    count(string, caracter) {
+        if (!typeof(string) === "string" || string === "") {
+            console.error("Invalid string.");
+            return;
+        }
+
+        if (!typeof(caracter) === "string" || string === "") {
+            console.error("Invalid caracter to check");
+        }
+
+        string = string.split("");
+
+        let count = 0;
+        let index = 0;
+
+        do {
+            index = string.indexOf(caracter);
+            if (index !== -1) {
+                delete string[index];
+                count++;
+            }
+        } while (index !== -1)
+
+        return count;
     }
 }
 
 const string = new stringTemplate;
-
 export {string};
