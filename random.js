@@ -1,5 +1,5 @@
 class moduleRandom {
-    number(min = 0, max) {
+    randrange(min = 0, max) {
         if (typeof(min) !== "number") return console.error("Minimal number is invalid.");
         if (typeof(max) !== "number") return console.error("Maximal number is invalid.");
         if (min > max) return console.error("Min > Max");
@@ -8,26 +8,25 @@ class moduleRandom {
     }   
 
 
-    choise(array) {
+    choise([...array]) {
         if (typeof(array) !== "object" || array.length === 0) return console.error("Invalid Array");
 
-        return array[this.number(0, array.length - 1)];
+        return array[this.randrange(0, array.length - 1)];
     }
 
 
-    shuffle(array) {
+    shuffle([...array]) {
         if (typeof(array) !== "object" || array.length === 0) return console.error("Invalid Array");
 
-        console.log(typeof(array));
-
-        return array;
+        return array.sort(() => Math.random() - 0.5);;
     }
 
 
-    sample(array, amount) {
+    sample([...array], amount) {
         if (typeof(array) !== "object" || array.length === 0) return console.error("Invalid Array");
         if (typeof(amount) !== "number" || amount <= 0) return console.error("Invalid amount");
-        if (amount > array.length) return console.error("Amount > array");
+        if (amount > array.length) return console.error("Amount > Array");
+        if (array.length === 1) return array;
 
         array = this.shuffle(array);
 
