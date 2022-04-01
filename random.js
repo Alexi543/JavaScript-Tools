@@ -18,7 +18,7 @@ class moduleRandom {
     shuffle([...array]) {
         if (typeof(array) !== "object" || array.length === 0) return console.error("Invalid Array");
 
-        return array.sort(() => Math.random() - 0.5);;
+        return array.sort(() => Math.random() - 0.5);
     }
 
 
