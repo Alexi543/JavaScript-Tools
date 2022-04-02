@@ -66,3 +66,5 @@ class moduleString {
 
 const string = new moduleString;
 export {string};
+
+//faire un replace qui modifie toutes les carateres
