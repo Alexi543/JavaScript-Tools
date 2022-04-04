@@ -28,7 +28,7 @@ class moduleString {
 
     keepCharacters(string, [...caracters]) {
         if (typeof(string) !== "string" || string === "") return console.error("Invalid string.");
-        if (caracters.length < 0) return console.error("Invalid caracters to keep");
+        if (caracters.length < 1) return console.error("Invalid caracters to keep");
 
         string = string.split("");
         string = string.filter(x => caracters.indexOf(x) !== -1);
@@ -61,6 +61,24 @@ class moduleString {
         } while (index !== -1)
 
         return count;
+    }
+
+
+    replace(string, [...caracters], replace) {
+        if (typeof(string) !== "string" || string === "") return console.error("Invalid string.");
+        if (caracters.length < 1) return console.error("Invalid carater to replace");
+        if (typeof(replace) !== "string") return console.error("Invalid new carater");
+        
+        string = string.split("");
+
+        let newString = "";
+
+        string.forEach(caracter => {
+            if (caracters.indexOf(caracter) !== -1) newString += replace;
+            else newString += caracter;
+        })
+
+        return newString;
     }
 }
 
