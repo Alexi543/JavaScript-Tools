@@ -7,6 +7,15 @@ class moduleRandom {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }   
 
+    
+    float(min = 0, max) {
+        if (typeof(min) !== "number") return console.error("Minimal number is invalid.");
+        if (typeof(max) !== "number") return console.error("Maximal number is invalid.");
+        if (min > max) return console.error("Min > Max");
+
+        return Math.random() * (max - min + 1) + min;
+    }
+
 
     choise([...array]) {
         if (typeof(array) !== "object" || array.length === 0) return console.error("Invalid Array");
