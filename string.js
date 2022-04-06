@@ -49,18 +49,7 @@ class moduleString {
 
         string = string.split("");
 
-        let count = 0;
-        let index = 0;
-
-        do {
-            index = string.indexOf(caracter);
-            if (index !== -1) {
-                delete string[index];
-                count++;
-            }
-        } while (index !== -1)
-
-        return count;
+        return string.filter(x => [caracter].indexOf(x) !== -1).length;
     }
 
 
@@ -84,5 +73,3 @@ class moduleString {
 
 const string = new moduleString;
 export {string};
-
-//faire un replace qui modifie toutes les carateres
