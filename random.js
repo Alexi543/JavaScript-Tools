@@ -1,4 +1,4 @@
-class moduleRandom {
+export const random = new class {
     randrange(min = 0, max) {
         if (typeof(min) !== "number") return console.error("Minimal number is invalid.");
         if (typeof(max) !== "number") return console.error("Maximal number is invalid.");
@@ -44,6 +44,3 @@ class moduleRandom {
         return array;
     }
 }
-
-const random = new moduleRandom;
-export {random};

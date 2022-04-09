@@ -1,4 +1,4 @@
-class moduleString {
+export const string = new class {
     ascii_lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     ascii_uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     ascii_letters = this.ascii_lowercase + this.ascii_uppercase;
@@ -70,6 +70,3 @@ class moduleString {
         return newString;
     }
 }
-
-const string = new moduleString;
-export {string};
