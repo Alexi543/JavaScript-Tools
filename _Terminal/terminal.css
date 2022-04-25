@@ -9,6 +9,11 @@ input::placeholder {
 body {
     background-color: black;
     padding: 10px;
+    cursor: none;
+}
+
+.prints {
+    color: white;
 }
 
 .input {
