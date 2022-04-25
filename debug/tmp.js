@@ -7,5 +7,10 @@ terminal.input("test input", value => {
     terminal.input("test input 2", value => {
         terminal.print(`value = ${value}`);
         console.log(value);
+
+        terminal.input("test input 3", value => {
+            terminal.print(`value = ${value}`);
+            console.log(value);
+        })
     })
 });

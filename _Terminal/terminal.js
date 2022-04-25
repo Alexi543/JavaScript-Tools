@@ -31,16 +31,11 @@ export const terminal = new class {
         }
 
         const INPUT = document.getElementById(this.#inputsNum);
-        let send = false;
 
         INPUT.focus();
 
         return new Promise((exit) => {
-            INPUT.addEventListener("change", () => send = true);
-
-            setInterval(() => {
-                if (send === true) exit();
-            }, 500);
+            INPUT.addEventListener("change", exit);
         }).then(() => {
             INPUT.disabled = true;
             code(INPUT.value);
