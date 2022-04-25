@@ -1,16 +1,6 @@
 import { terminal } from "../_Terminal/terminal.js";
 
-terminal.input("test input", value => {
-    terminal.print(`value = ${value}`);
-    console.log(value);
+terminal.init();
+terminal.fontSize("10px")
 
-    terminal.input("test input 2", value => {
-        terminal.print(`value = ${value}`);
-        console.log(value);
-
-        terminal.input("test input 3", value => {
-            terminal.print(`value = ${value}`);
-            console.log(value);
-        })
-    })
-});
+terminal.print("print")
