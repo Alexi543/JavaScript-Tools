@@ -1,5 +1,5 @@
-import { terminal } from "../Terminal/terminal.js";
+import { terminal } from "../_Terminal/terminal.js";
 
-terminal.input("input test", value => {
+terminal.input("input test ", value => {
     console.log(value);
 })

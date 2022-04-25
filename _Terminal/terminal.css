@@ -17,4 +17,10 @@ body {
     border: none;
     border-bottom-style: solid;
     width: 450px;
+    border-width: 2px;
+}
+
+.input-label {
+    display: inline;
+    color: white;
 }

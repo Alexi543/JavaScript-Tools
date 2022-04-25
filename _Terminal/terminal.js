@@ -10,7 +10,7 @@ export const terminal = new class {
 
     input(message, code) {
         this.#inputsNum++;
-        this.#area.innerHTML += `<input type='text' class="input" id="${this.#inputsNum}" placeholder="${message}">`;
+        this.#area.innerHTML += `<p class="input-label">${message}</p><input type='text' class="input" id="${this.#inputsNum}">`;
     
         const INPUT = document.getElementById(this.#inputsNum);
         let send = false;
@@ -19,12 +19,11 @@ export const terminal = new class {
 
         return new Promise((exit) => {
             INPUT.addEventListener("change", () => send = true);
-    
+
             setInterval(() => {
                 if (send === true) exit();
             }, 500);
         }).then(() => {
-            INPUT.innerHTML = `<input type='text' class="input" disabled="disabled" id="${this.#inputsNum}" placeholder="${message}">`
             code(INPUT.value);
         })
     }
