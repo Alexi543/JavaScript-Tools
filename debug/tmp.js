@@ -1,5 +1,5 @@
-import {random} from "../random.js";
-import {string} from "../string.js";
-import {math} from "../math.js";
+import { terminal } from "../Terminal/terminal.js";
 
-console.log(math.divideNum(5));
+terminal.input("input test", value => {
+    console.log(value);
+})
