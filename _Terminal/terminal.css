@@ -1,37 +1,50 @@
 :root {
     --background: rgb(7, 7, 7);
     --color: rgb(247, 244, 244);
-    --font-size: 20px;
+    --font-size: 15px;
     --terminal-heigth: 400px;
     --terminal-width: 400px;
+    --pos-x: 15px;
+    --pos-y: 15px;
+    --corners: 10px;
+    --title-font-size: 20px;
 }
 
-* {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-*:focus {
-    outline: none;
-}
-
-input::placeholder {
+.input input::placeholder {
     color: var(--color);
     opacity: 80%;
     font-size: var(--font-size);
 }
 
 .terminal {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background);
     padding: 20px;
     font-size: var(--font-size);
     height: var(--terminal-heigth);
     width: var(--terminal-width);
+    position: relative;
+    top: var(--pos-y);
+    left: var(--pos-x);
+    border-radius: var(--corners);
+}
+
+.terminal-title {
+    color: var(--color);
+    font-size: var(--title-font-size);
+    margin-top: 3px;
+    margin-bottom: 30px;
+}
+
+.terminal :focus {
+    outline: none;
 }
 
 .prints {
     margin: 0px;
     color: var(--color);
     overflow-wrap: break-word;
+    margin-bottom: 10px;
 }
 
 .input {
@@ -44,8 +57,9 @@ input::placeholder {
     border-width: 2px;
     min-width: 200px;
     max-width: 450px;
-    margin-left: 5px;
+    margin-left: 10px;
     padding-left: 15px;
+    margin-bottom: 10px;
 }
 
 .input-label {
