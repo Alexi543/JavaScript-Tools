@@ -1,3 +1,5 @@
+let terminalName = "Terminal";
+
 export const terminal = new class {
     #inputsNum = 0;
     #area;
@@ -5,9 +7,9 @@ export const terminal = new class {
     init(position = document.body) {
         document.head.innerHTML += "<link rel='stylesheet' href='/_Terminal/terminal.css'>";
         position.innerHTML += (
-            "<section class='terminal'> \
-                <p class='terminal-title'>Terminal</p> \
-            </section>"
+            `<section class='terminal'> \
+                <p class='terminal-title'>${terminalName}</p> \
+            </section>`
         );
         this.#area = document.querySelector(".terminal");
     }
@@ -32,7 +34,7 @@ export const terminal = new class {
             this.#area.innerHTML += (
                 `<pre class="input-label">${message}</pre>
                 <input type='text' class="input" id="${this.#inputsNum}">`
-                );
+            );
         } else {
             this.#area.innerHTML += (
                 `<pre class="input-label">${message}</pre>
@@ -60,14 +62,8 @@ export const terminal = new class {
 
     clear() {
         this.#inputsNum = 0;
-        this.#area.innerHTML = (
-            "<div class='terminal-head'> \
-                <p id='terminal-title'>Terminal</p> \
-            </div> \
-            <div class='terminal'> \
-            \
-            </div>"
-        );
+        this.#area.innerHTML = "";
+        this.#area.innerHTML += `<p class='terminal-title'>${terminalName}</p>`;
     }
 
     window = new class {
@@ -118,6 +114,7 @@ export const terminal = new class {
         title(name) {
             if (typeof(name) !== "string" || name === "") return console.error("Set Title - Invalid Name");
 
+            terminalName = name;
             document.querySelector(".terminal-title").textContent = name;
         }
     }
