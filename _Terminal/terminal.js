@@ -11,16 +11,19 @@ export const terminal = new class {
 
     backgound(color) {
         if (typeof(color) !== "string" || color === "") return console.error("Set Background - Invalid Color");
+
         this.#root.style.setProperty("--background", color);
     }
 
     color(color) {
         if (typeof(color) !== "string" || color === "") return console.error("Set Color - Invalid Color");
+
         this.#root.style.setProperty("--color", color);
     }
 
     size(size) {
         if (typeof(size) !== "string" || size === "" || /x/.test(size) === false) return console.error("Set Size - Invalid Dimensions");
+        
         size = size.split("x");
 
         this.#root.style.setProperty("--terminal-width", `${size[0]}px`);
@@ -29,8 +32,8 @@ export const terminal = new class {
 
     fontSize(size) {
         if (typeof(size) !== "string" || size === "") return console.error("Set Size - Invalid Dimensions");
-        
-        this.#root.style.setProperty("--font-size", size)
+
+        this.#root.style.setProperty("--font-size", size) 
     }
 
     print(...messages) {
@@ -38,7 +41,7 @@ export const terminal = new class {
 
         messages.forEach(message => {
             if (message === "") return console.error("Print - Invalid Message");
-            this.#area.innerHTML += `<p class="prints">${message}</p>`;
+            this.#area.innerHTML += `<pre class="prints">${message}</pre>`;
         });
     }
 
@@ -51,12 +54,12 @@ export const terminal = new class {
 
         if (maxLength === undefined) {
             this.#area.innerHTML += (
-                `<p class="input-label">${message}</p>
+                `<pre class="input-label">${message}</pre>
                 <input type='text' class="input" id="${this.#inputsNum}">`
             );
         } else {
             this.#area.innerHTML += (
-                `<p class="input-label">${message}</p>
+                `<pre class="input-label">${message}</pre>
                 <input type='text' class="input" id="${this.#inputsNum}" maxlength="${maxLength}">`
             );
         }
