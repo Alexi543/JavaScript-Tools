@@ -7,23 +7,10 @@ terminal.window.color("lightgreen");
 terminal.print(" Try Inputs tests :");
 terminal.skipLine();
 
-terminal.input("Test input 1", value1 => {
-    terminal.print("> input 1 done");
+let input1;
+let input2;
+let input3;
 
-    terminal.input("Test input 2", value2 => {
-        terminal.print("> input 2 done");
+await terminal.input("test input", val => input1 = val);
 
-        terminal.input("Test input 3", value3 => {
-            terminal.print("> input 3 done");
-
-            terminal.skipLine(2);
-
-            terminal.print(`Value 1 = ${value1}`, `Value 2 = ${value2}`, `Value 3 = ${value3}`);
-
-            terminal.input("clear terminal", () => {
-                terminal.clear()
-                console.log("terminal cleaed");
-            })
-        })
-    })
-})
+terminal.print(`input value = ${input1}`);
