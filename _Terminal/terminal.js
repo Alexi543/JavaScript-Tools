@@ -22,7 +22,7 @@ export const terminal = new class {
             if (message === "") return console.error("Print - Invalid Message");
             
             this.#allPrints++;
-            this.#area.innerHTML += `<pre class="prints">${message}</pre>`;
+            this.#area.innerHTML += `<p class="prints">${message}</p>`;
             this.#area.scrollTo(0, this.#allPrints * 20);
         });
     }
@@ -37,12 +37,12 @@ export const terminal = new class {
 
         if (maxLength === undefined) {
             this.#area.innerHTML += (
-                `<pre class="input-label">${message}</pre>
+                `<p class="input-label">${message}</p>
                 <input type='text' class="input" id="${this.#inputsNum}">`
             );
         } else {
             this.#area.innerHTML += (
-                `<pre class="input-label">${message}</pre>
+                `<p class="input-label">${message}</p>
                 <input type='text' class="input" id="${this.#inputsNum}" maxlength="${maxLength}">`
             );
         }
@@ -124,6 +124,12 @@ export const terminal = new class {
 
             terminalName = name;
             document.querySelector(".terminal-title").textContent = name;
+        }
+
+        titleSize(size) {
+            if (typeof(size) !== "string" || size === "") return console.error("Set Title Size - Invalid Size");
+
+            this.#root.style.setProperty("--title-font-size", size);
         }
     }
 }
