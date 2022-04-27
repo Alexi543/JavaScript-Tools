@@ -2,6 +2,7 @@ let terminalName = "Terminal";
 
 export const terminal = new class {
     #inputsNum = 0;
+    #allPrints = 0;
     #area;
 
     init(position = document.body) {
@@ -19,7 +20,10 @@ export const terminal = new class {
         
         messages.forEach(message => {
             if (message === "") return console.error("Print - Invalid Message");
+            
+            this.#allPrints++;
             this.#area.innerHTML += `<pre class="prints">${message}</pre>`;
+            this.#area.scrollTo(0, this.#allPrints * 20);
         });
     }
 
@@ -29,6 +33,7 @@ export const terminal = new class {
         if (maxLength !== undefined && typeof(maxLength) !== "number" || maxLength <= 0) return console.error("Input - Invalid Caraters Length.");
 
         this.#inputsNum++;
+        this.#allPrints++;
 
         if (maxLength === undefined) {
             this.#area.innerHTML += (
@@ -41,6 +46,8 @@ export const terminal = new class {
                 <input type='text' class="input" id="${this.#inputsNum}" maxlength="${maxLength}">`
             );
         }
+
+        this.#area.scrollTo(0, this.#allPrints * 20);
 
         const INPUT = document.getElementById(this.#inputsNum);
 
@@ -57,6 +64,7 @@ export const terminal = new class {
     }
     
     skipLine(skip = 1) {
+        if (typeof(skip) !== "number" || skip <= 0) return console.error("Skip Line - Invalid Skips");
         for (let i = 0; i < skip; i++) this.#area.innerHTML += "<br>";
     }
 

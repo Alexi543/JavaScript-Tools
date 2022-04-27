@@ -27,6 +27,8 @@
     top: var(--pos-y);
     left: var(--pos-x);
     border-radius: var(--corners);
+    overflow-wrap: break-word;
+    overflow-y: scroll;
 }
 
 .terminal-title {
