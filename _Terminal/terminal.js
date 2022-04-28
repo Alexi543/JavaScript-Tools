@@ -7,38 +7,48 @@ let terminals = 0;
 export class webTerminal {
     #inputsNum = 0;
     #allPrints = 0;
+    #terminalData;
     #terminalID;
     #area;
 
     constructor(position = document.body) {
+        this.#terminalID = terminals;
+        
+        let terminalName = `Terminal_${this.#terminalID + 1}`
+
         position.innerHTML += (
             `<section class='terminal' id="terminal${terminals}"> \
-            <p class='terminal-title'>Terminal</p> \
+            <p class='terminal-title'>${terminalName}</p> \
             </section>`
         );
             
         this.#area = document.getElementById(`terminal${terminals}`);
-            
-        data
-            
-        terminals++;
+        
+        data.push({
+            name: terminalName
+        });
 
-        console.log(this.#area);
+        this.#terminalData = data[this.#terminalID];
+
+        terminals++;
     }
 
 
-    // print(...messages) {
-    //     if (messages.length === 0) return console.error("Print - No Messages.");
+    print(...messages) {
+        if (messages.length === 0) return console.error("Print - No Messages.");
         
-    //     messages.forEach(message => {
-    //         if (message === "") return console.error("Print - Invalid Message");
+        messages.forEach(message => {
+            if (message === "") return console.error("Print - Invalid Message");
             
-    //         this.#allPrints++;
-    //         this.#area.innerHTML += `<p class="prints">${message}</p>`;
-    //         this.#area.scrollTo(0, this.#allPrints * 20);
-    //     });
-    // }
+            this.#allPrints++;
+            this.#area.innerHTML += `<p class="prints">${message}</p>`;
+            this.#area.scrollTo(0, this.#allPrints * 20);
+        });
+    }
 
+    test() {
+        console.log("test");
+    }
     
     // input(message, func, maxLength = undefined) {
     //     if (message === "") return console.error("Input - Invalid Message.");
