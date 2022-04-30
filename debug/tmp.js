@@ -4,6 +4,6 @@ const terminal = new webTerminal();
 const terminal2 = new webTerminal();
 
 terminal.print("ifd");
+terminal.print("    fius")
 
-
-terminal2.print("jdb")
+terminal2.print("jdb");

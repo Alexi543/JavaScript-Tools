@@ -18,7 +18,7 @@ export class webTerminal {
 
         position.innerHTML += (
             `<section class='terminal' id="terminal${terminals}"> \
-            <p class='terminal-title'>${terminalName}</p> \
+                <p class='terminal-title'>${terminalName}</p> \
             </section>`
         );
             

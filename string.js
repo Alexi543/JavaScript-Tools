@@ -10,9 +10,6 @@ export const string = new class {
 
 
     deleteCaracter(string, [...caracters]) {
-        if (typeof(string) !== "string" || string === "") return console.error("Invalid string.");
-        if (caracters.length < 0) return console.error("Invalid caracters to delete");
-    
         string = string.split("");
         string = string.filter(x => caracters.indexOf(x) === -1);
 
@@ -27,9 +24,6 @@ export const string = new class {
 
 
     keepCharacters(string, [...caracters]) {
-        if (typeof(string) !== "string" || string === "") return console.error("Invalid string.");
-        if (caracters.length < 1) return console.error("Invalid caracters to keep");
-
         string = string.split("");
         string = string.filter(x => caracters.indexOf(x) !== -1);
 
@@ -44,9 +38,6 @@ export const string = new class {
 
 
     count(string, caracter) {
-        if (typeof(string) !== "string" || string === "") return console.error("Invalid string.");
-        if (typeof(caracter) !== "string" || string === "") return console.error("Invalid caracter to check");
-
         string = string.split("");
 
         return string.filter(x => [caracter].indexOf(x) !== -1).length;
@@ -54,10 +45,6 @@ export const string = new class {
 
 
     replace(string, [...caracters], replace) {
-        if (typeof(string) !== "string" || string === "") return console.error("Invalid string.");
-        if (caracters.length < 1) return console.error("Invalid carater to replace");
-        if (typeof(replace) !== "string") return console.error("Invalid new carater");
-        
         string = string.split("");
 
         let newString = "";
